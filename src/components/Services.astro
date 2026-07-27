@@ -1,0 +1,76 @@
+---
+import { ServiceGlassCard, type ServiceItem } from "./ui/service-card";
+
+const services: (ServiceItem & { id: string })[] = [
+  {
+    id: "01",
+    title: "Custom Web Development",
+    features: [
+      "Bespoke full-stack architectures (Astro, Next.js)",
+      "Ecommerce website design solutions",
+      "Engineered for sub-second page loads",
+      "Robust security and API integrations",
+      "Progressive Web Apps (PWA)"
+    ],
+    iconType: "code"
+  },
+  {
+    id: "02",
+    title: "High-Converting Web Design",
+    features: [
+      "Award-grade visual aesthetics",
+      "Fluid animations and liquid motion",
+      "Custom, brand-aligned UI systems",
+      "Conversion-focused user journeys",
+      "Responsive, mobile-first layouts"
+    ],
+    iconType: "layout"
+  },
+  {
+    id: "03",
+    title: "AI Website Design Services",
+    features: [
+      "Seamless intelligent search functionality",
+      "Custom AI assistants and chatbots",
+      "Automated user workflows natively integrated",
+      "Dynamic, personalized content delivery",
+      "Real-time analytics and data processing"
+    ],
+    iconType: "bot"
+  }
+];
+---
+
+<section 
+  id="services" 
+  class="py-32 md:py-48 relative overflow-hidden border-t border-hairline bg-canvas"
+>
+  <!-- Background Image with mask blending -->
+  <picture class="absolute inset-x-0 top-0 w-full pointer-events-none select-none" style="-webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 75%, transparent 100%); mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 75%, transparent 100%);">
+    <source media="(min-width: 768px)" srcset="/services-pc.webp" />
+    <img src="/services-mobile.webp" alt="" class="w-full h-auto" />
+  </picture>
+
+  <!-- Overlay for readability -->
+  <div class="absolute inset-0 bg-canvas-soft/70"></div>
+  
+  <div class="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
+    <div class="mb-16 md:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
+      <div class="max-w-2xl">
+        <h2 class="text-4xl md:text-5xl font-sans font-extralight tracking-[-0.02em] text-white mb-6">
+          Web development solutions <br class="hidden sm:block"/>engineered for growth.
+        </h2>
+        <p class="text-lg text-body text-pretty">
+          As a top-rated website developer agency, Shyamika AI delivers bespoke, performance-driven web platforms. From custom ecommerce website design to complete website redesign services, we captivate users and elevate your brand.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      {services.map((service, index) => (
+        <ServiceGlassCard client:visible service={service} index={index} />
+      ))}
+    </div>
+  </div>
+</section>
+

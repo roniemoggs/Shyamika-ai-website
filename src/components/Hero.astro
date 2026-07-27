@@ -1,0 +1,64 @@
+---
+import ChromaticFluid from "./ui/chromatic-fluid";
+const CALENDLY_URL = "https://calendly.com/shreyasrajsony11/30min";
+---
+
+<section class="relative w-full" id="hero">
+<ChromaticFluid client:load height="95vh" className="relative flex flex-col justify-center overflow-hidden pt-32 pb-16 min-h-[95vh]" bottomFade={true}>
+  <div class="relative max-w-7xl mx-auto px-6 md:px-10 flex flex-col items-center text-center">
+    <!-- Eyebrow -->
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-hairline bg-canvas-soft/50 backdrop-blur-md mb-8">
+      <span class="relative flex h-2 w-2">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-cyan"></span>
+      </span>
+      <span class="text-xs font-mono text-cyan tracking-wider uppercase">SHYAMIKA AI: CUSTOM WEBSITE DEVELOPER</span>
+    </div>
+
+    <!-- Headline -->
+    <div class="relative max-w-4xl mb-6 md:mb-8">
+      <!-- Layer 1: Inverts the background (creates opposite colors) -->
+      <h1 class="text-5xl md:text-7xl font-sans font-semibold tracking-[-0.04em] leading-[1.1] text-white mix-blend-difference text-balance w-full">
+        Custom Website Developer for<br class="hidden md:block"/> US Local Businesses.
+      </h1>
+      <!-- Layer 2: Forces the result to be grayscale by applying a 0-saturation color blend -->
+      <h1 class="absolute top-0 left-0 w-full h-full text-5xl md:text-7xl font-sans font-semibold tracking-[-0.04em] leading-[1.1] text-white mix-blend-color text-balance pointer-events-none" aria-hidden="true">
+        Custom Website Developer for<br class="hidden md:block"/> US Local Businesses.
+      </h1>
+    </div>
+
+    <!-- Subtext -->
+    <p class="text-lg md:text-xl text-body text-pretty max-w-2xl mb-12 md:mb-16 z-10 relative">
+      Looking for affordable web design for small business? Shyamika AI is a premium website developer agency helping local brands turn visitors into paying clients with high-converting layouts and lightning-fast speeds.
+    </p>
+
+
+
+    <!-- CTAs -->
+    <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+      <a 
+        href={CALENDLY_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="w-full sm:w-auto px-8 py-4 rounded-full bg-white text-on-primary font-semibold text-lg hover:scale-105 transition-transform flex items-center justify-center gap-2"
+      >
+        Book A Call
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </a>
+      <a 
+        href="#how-it-works"
+        class="w-full sm:w-auto px-8 py-4 rounded-full bg-canvas-soft/80 border border-hairline text-white font-semibold text-lg hover:bg-canvas-soft transition-colors flex items-center justify-center"
+      >
+        See how it works
+      </a>
+    </div>
+
+    <!-- Trust indicators -->
+    <div class="mt-16 flex items-center gap-4 text-xs font-mono text-mute uppercase tracking-widest">
+      <span>100+ Web Builds</span>
+      <span class="w-1 h-1 rounded-full bg-mute"></span>
+      <span>99.9% Uptime & Speed</span>
+    </div>
+  </div>
+</ChromaticFluid>
+</section>

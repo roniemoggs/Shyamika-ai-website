@@ -1,0 +1,57 @@
+---
+const steps = [
+  {
+    title: "Architecture & UI/UX Design",
+    desc: "We analyze your target audience, design pixel-perfect UI systems, and architect a performance-first tech stack.",
+  },
+  {
+    title: "Full-Stack Web Engineering",
+    desc: "We build your platform using cutting-edge web frameworks, interactive micro-animations, and AI capabilities.",
+  },
+  {
+    title: "Optimization & Global Launch",
+    desc: "We perform Core Web Vitals audit, optimize SEO, deploy on edge CDNs, and provide ongoing growth support.",
+  },
+];
+---
+
+<section
+  id="how-it-works"
+  class="py-24 md:py-32 relative bg-cover bg-center bg-no-repeat"
+  style="background-image: linear-gradient(to bottom, #0a0a0a 0%, transparent 15%, transparent 85%, #0a0a0a 100%), url('/process-main.webp?v=2');"
+>
+  <div class="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
+    <div class="text-left mb-16 md:mb-24 max-w-3xl">
+      <h2
+        class="text-3xl md:text-5xl font-sans font-extralight tracking-[-0.02em] text-white"
+      >
+        From concept to high-performance launch <br class="hidden sm:block" />in
+        weeks, not months.
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8 relative">
+      <!-- Connecting Line -->
+      <div
+        class="hidden md:block absolute top-[40px] left-[40px] right-[40px] h-px bg-gradient-to-r from-transparent via-hairline to-transparent z-0"
+      >
+      </div>
+
+      {
+        steps.map((step, idx) => (
+          <div class="relative z-10 flex flex-col items-start text-left">
+            <div class="w-20 h-20 rounded-full bg-canvas border border-hairline flex items-center justify-center mb-8 relative">
+              <div class="absolute inset-2 rounded-full bg-canvas-soft flex items-center justify-center font-mono text-lg text-white">
+                0{idx + 1}
+              </div>
+            </div>
+            <h3 class="text-xl font-sans font-semibold text-white mb-4">
+              {step.title}
+            </h3>
+            <p class="text-body max-w-sm">{step.desc}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

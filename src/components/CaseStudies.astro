@@ -1,0 +1,45 @@
+---
+import { ScrollReelTestimonials } from "@/components/ui/scroll-reel-testimonials";
+
+const TESTIMONIALS = [
+  {
+    quote: "Shyamika AI totally transformed our online presence. Their AI web integration is seamless and highly effective.",
+    author: "Marcus Thorne",
+    image:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80&auto=format&fit=crop",
+    alt: "Portrait of Marcus Thorne",
+  },
+  {
+    quote:
+      "The custom web development and AI automation solutions they delivered gave us a massive competitive edge.",
+    author: "Sarah Jenkins",
+    image:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80&auto=format&fit=crop",
+    alt: "Portrait of Sarah Jenkins",
+  },
+  {
+    quote: "Incredible attention to detail. Our conversion rates skyrocketed after deploying their AI-driven solutions.",
+    author: "David Chen",
+    image:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80&auto=format&fit=crop",
+    alt: "Portrait of David Chen",
+  },
+];
+---
+<section id="case-studies" class="pt-64 md:pt-96 pb-40 md:pb-56 bg-canvas relative overflow-hidden bg-cover bg-top bg-no-repeat bg-case-studies-section">
+  <div class="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
+
+    <ScrollReelTestimonials client:visible testimonials={TESTIMONIALS} />
+  </div>
+</section>
+
+<style>
+  .bg-case-studies-section {
+    background-image: linear-gradient(to bottom, #0a0a0a 0%, transparent 15%, transparent 85%, #0a0a0a 100%), url('/casestudies-mobile.webp');
+  }
+  @media (min-width: 768px) {
+    .bg-case-studies-section {
+      background-image: linear-gradient(to bottom, #0a0a0a 0%, transparent 15%, transparent 85%, #0a0a0a 100%), url('/case-studies-bg.webp');
+    }
+  }
+</style>

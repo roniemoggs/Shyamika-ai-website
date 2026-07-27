@@ -1,0 +1,59 @@
+---
+const CALENDLY_URL = "https://calendly.com/shreyasrajsony11/30min";
+const currentYear = new Date().getFullYear();
+---
+
+<footer id="contact" class="bg-canvas border-t border-hairline py-20">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    <div class="grid md:grid-cols-2 gap-12 lg:gap-24 items-start">
+      
+      <!-- Left side CTA -->
+      <div>
+        <h2 class="text-3xl md:text-5xl font-sans font-semibold tracking-[-0.02em] text-white mb-6">
+          Ready to elevate your digital web presence?
+        </h2>
+        <p class="text-body text-lg mb-8 max-w-md">
+          Transform your brand with a next-generation web application. Book a consultation call to discuss your web project.
+        </p>
+        <a 
+          href={CALENDLY_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center px-8 py-4 rounded-full bg-white text-on-primary font-semibold text-lg hover:scale-105 transition-transform"
+        >
+          Book A Call
+        </a>
+      </div>
+      
+      <!-- Links -->
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-8 font-mono text-sm">
+        <div class="flex flex-col gap-4">
+          <span class="text-mute uppercase tracking-widest mb-2">Company</span>
+          <a href="/about" class="text-body hover:text-white transition-colors">About Us</a>
+          <a href="/#services" class="text-body hover:text-white transition-colors">Services</a>
+          <a href="/#how-it-works" class="text-body hover:text-white transition-colors">Process</a>
+          <a href="/contact" class="text-body hover:text-white transition-colors">Contact Us</a>
+        </div>
+        <div class="flex flex-col gap-4">
+          <span class="text-mute uppercase tracking-widest mb-2">Connect</span>
+          <a href="https://shyamikaai.com" class="text-body hover:text-white transition-colors">Website</a>
+          <a href="#" class="text-body hover:text-white transition-colors">LinkedIn</a>
+          <a href="#" class="text-body hover:text-white transition-colors">Twitter</a>
+        </div>
+        <div class="flex flex-col gap-4">
+          <span class="text-mute uppercase tracking-widest mb-2">Legal</span>
+          <a href="/privacy-policy" class="text-body hover:text-white transition-colors">Privacy Policy</a>
+          <a href="/terms-conditions" class="text-body hover:text-white transition-colors">Terms & Conditions</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Bottom -->
+    <div class="mt-24 pt-8 border-t border-hairline flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-mono text-mute">
+      <div class="flex items-center gap-2">
+        <span class="font-sans font-semibold text-lg text-white">Shyamika<span class="italic text-cyan">AI</span></span>
+      </div>
+      <p>&copy; {currentYear} Shyamika AI. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
