@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shyamikaai.com/sitemap-index.xml
