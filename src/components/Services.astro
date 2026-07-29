@@ -46,9 +46,9 @@ const services: (ServiceItem & { id: string })[] = [
   class="py-32 md:py-48 relative overflow-hidden border-t border-hairline bg-canvas"
 >
   <!-- Background Image with mask blending -->
-  <picture class="absolute inset-x-0 top-0 w-full pointer-events-none select-none" style="-webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 75%, transparent 100%); mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 75%, transparent 100%);">
+  <picture class="absolute inset-x-0 top-0 w-full pointer-events-none select-none flex justify-center items-start" style="-webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 70%, transparent 100%); mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 70%, transparent 100%);">
     <source media="(min-width: 768px)" srcset="/services-pc.webp" />
-    <img src="/services-mobile.webp" alt="Shyamika AI Services Overview" class="w-full h-auto" />
+    <img src="/services-mobile.webp" alt="Shyamika AI Services Overview" class="w-auto h-auto max-w-full md:w-full md:h-auto" />
   </picture>
 
   <!-- Overlay for readability -->

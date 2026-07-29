@@ -1,7 +1,13 @@
 ---
 ---
 
-<section id="about" class="pt-36 pb-28 md:pt-64 md:pb-48 bg-canvas relative overflow-hidden bg-cover bg-top bg-no-repeat bg-about-section">
+<section id="about" class="pt-36 pb-28 md:pt-64 md:pb-48 bg-canvas relative overflow-hidden">
+  <!-- Background Image with mask blending -->
+  <picture class="absolute inset-x-0 top-0 w-full pointer-events-none select-none z-0 flex justify-center items-start" style="-webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 70%, transparent 100%); mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 70%, transparent 100%);">
+    <source media="(min-width: 768px)" srcset="/about-bg.webp" />
+    <img src="/about-mobile.webp" alt="" class="w-auto h-auto max-w-full md:w-full md:h-full md:object-cover opacity-80" />
+  </picture>
+
   <div class="max-w-4xl mx-auto px-6 md:px-10 relative z-10">
     
     <div class="relative rounded-[36px] overflow-hidden p-8 md:p-14 border border-white/10 bg-white/5 backdrop-blur-md shadow-2xl">
@@ -58,14 +64,3 @@
 
   </div>
 </section>
-
-<style>
-  .bg-about-section {
-    background-image: linear-gradient(to bottom, #0a0a0a 0%, transparent 15%, transparent 85%, #0a0a0a 100%), url('/about-mobile.webp');
-  }
-  @media (min-width: 768px) {
-    .bg-about-section {
-      background-image: linear-gradient(to bottom, #0a0a0a 0%, transparent 15%, transparent 85%, #0a0a0a 100%), url('/about-bg.webp');
-    }
-  }
-</style>

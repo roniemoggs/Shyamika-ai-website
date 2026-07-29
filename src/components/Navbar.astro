@@ -1,11 +1,11 @@
 ---
 const links = [
-  { name: 'Home', href: '/' },
-  { name: 'Case Studies', href: '/#case-studies' },
-  { name: 'Services', href: '/#services' },
-  { name: 'About', href: '/about' },
-  { name: 'Process', href: '/#how-it-works' },
-  { name: 'Contact', href: '/contact' },
+  { name: 'Home', href: '/', section: 'hero' },
+  { name: 'Case Studies', href: '/#case-studies', section: 'case-studies' },
+  { name: 'Services', href: '/#services', section: 'services' },
+  { name: 'About', href: '/about', section: 'about' },
+  { name: 'Process', href: '/#how-it-works', section: 'how-it-works' },
+  { name: 'Contact', href: '/contact', section: 'contact' },
 ];
 
 const CALENDLY_URL = "https://calendly.com/rohansingh-shyamikai/simple-meeting";
@@ -27,7 +27,7 @@ import { GradientButton } from '@/components/ui/gradient-button';
       {links.map((link) => (
         <a 
           href={link.href} 
-          data-section={link.href.includes('#') ? link.href.split('#')[1] : ''}
+          data-section={link.section}
           class="nav-link relative py-1 text-sm font-medium text-body hover:text-white transition-colors"
         >
           {link.name}
@@ -153,33 +153,75 @@ import { GradientButton } from '@/components/ui/gradient-button';
 
   // Active section observer
   const navLinks = document.querySelectorAll('.nav-link');
+  const rawPath = window.location.pathname;
+  const currentPath = (rawPath.endsWith('/') && rawPath.length > 1) ? rawPath.slice(0, -1) : rawPath;
+
+  // Set initial active state based on current path
+  navLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    const isHashLink = href.includes('#');
+    const hrefPath = (href.endsWith('/') && href.length > 1 && !isHashLink) ? href.slice(0, -1) : (href.split('#')[0] || '/');
+    
+    // We only set initial active state for direct path matches (non-hash links)
+    if (!isHashLink && hrefPath === currentPath) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
+
   const sections = Array.from(navLinks).map(link => {
     const sectionId = link.getAttribute('data-section');
-    return document.getElementById(sectionId);
+    return sectionId ? document.getElementById(sectionId) : null;
   }).filter(Boolean);
 
-  const observerOptions = {
-    root: null,
-    rootMargin: '-30% 0px -70% 0px', // Trigger when section hits upper part of viewport
-    threshold: 0
-  };
+  if (sections.length > 0) {
+    const observerOptions = {
+      root: null,
+      rootMargin: '-30% 0px -70% 0px', // Trigger when section hits upper part of viewport
+      threshold: 0
+    };
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.id;
+    const observer = new IntersectionObserver((entries) => {
+      let anyIntersecting = false;
+      let activeId = null;
+
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          anyIntersecting = true;
+          activeId = entry.target.id;
+        }
+      });
+
+      if (anyIntersecting && activeId) {
         navLinks.forEach(link => {
-          if (link.getAttribute('data-section') === id) {
+          const sectionId = link.getAttribute('data-section');
+          if (sectionId === activeId) {
             link.classList.add('active');
-          } else {
+          } else if (sectionId) {
+            // Only remove from other section links
+            link.classList.remove('active');
+          }
+        });
+      }
+    }, observerOptions);
+
+    sections.forEach(section => observer.observe(section));
+    
+    // Check scroll position on scroll as a fallback for the top
+    window.addEventListener('scroll', () => {
+      if (window.scrollY < 50) {
+        navLinks.forEach(link => {
+          const sectionId = link.getAttribute('data-section');
+          if (sectionId === 'hero') {
+            link.classList.add('active');
+          } else if (sectionId) {
             link.classList.remove('active');
           }
         });
       }
     });
-  }, observerOptions);
-
-  sections.forEach(section => observer.observe(section));
+  }
 </script>
 
 <style>

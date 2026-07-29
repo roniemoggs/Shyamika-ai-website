@@ -26,20 +26,14 @@ const TESTIMONIALS = [
   },
 ];
 ---
-<section id="case-studies" class="pt-64 md:pt-96 pb-40 md:pb-56 bg-canvas relative overflow-hidden bg-cover bg-top bg-no-repeat bg-case-studies-section">
-  <div class="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
+<section id="case-studies" class="pt-64 md:pt-96 pb-40 md:pb-56 bg-canvas relative overflow-hidden">
+  <!-- Background Image with mask blending -->
+  <picture class="absolute inset-x-0 top-0 w-full pointer-events-none select-none z-0 flex justify-center items-start" style="-webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 70%, transparent 100%); mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 70%, transparent 100%);">
+    <source media="(min-width: 768px)" srcset="/case-studies-bg.webp" />
+    <img src="/casestudies-mobile.webp" alt="" class="w-auto h-auto max-w-full md:w-full md:h-full md:object-cover opacity-80" />
+  </picture>
 
+  <div class="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
     <ScrollReelTestimonials client:visible testimonials={TESTIMONIALS} />
   </div>
 </section>
-
-<style>
-  .bg-case-studies-section {
-    background-image: linear-gradient(to bottom, #0a0a0a 0%, transparent 15%, transparent 85%, #0a0a0a 100%), url('/casestudies-mobile.webp');
-  }
-  @media (min-width: 768px) {
-    .bg-case-studies-section {
-      background-image: linear-gradient(to bottom, #0a0a0a 0%, transparent 15%, transparent 85%, #0a0a0a 100%), url('/case-studies-bg.webp');
-    }
-  }
-</style>
