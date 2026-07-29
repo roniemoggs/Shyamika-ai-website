@@ -1,5 +1,7 @@
 ---
+import { GradientButton } from '@/components/ui/gradient-button';
 
+const CALENDLY_URL = "https://calendly.com/rohansingh-shyamikai/simple-meeting";
 ---
 
 <section
@@ -26,21 +28,21 @@
           
           <ul class="space-y-4">
             <li class="flex items-start">
-              <span class="text-cyan mr-3 mt-1">•</span>
+              <span class="text-sky-400 mr-3 mt-1">•</span>
               <div>
                 <strong class="text-white font-sans font-extralight">Project Scope & Tech Stack:</strong>
                 <span class="text-white/90 font-sans font-thin leading-relaxed block mt-1">We'll dive into your vision, functional requirements, design preferences, and ideal tech stack (e.g., React, Next.js, Webflow, WordPress).</span>
               </div>
             </li>
             <li class="flex items-start">
-              <span class="text-cyan mr-3 mt-1">•</span>
+              <span class="text-sky-400 mr-3 mt-1">•</span>
               <div>
                 <strong class="text-white font-sans font-extralight">Timeline & Budget Estimate:</strong>
                 <span class="text-white/90 font-sans font-thin leading-relaxed block mt-1">Get a clear idea of realistic project turnaround, milestones, and flexible pricing options.</span>
               </div>
             </li>
             <li class="flex items-start">
-              <span class="text-cyan mr-3 mt-1">•</span>
+              <span class="text-sky-400 mr-3 mt-1">•</span>
               <div>
                 <strong class="text-white font-sans font-extralight">Actionable Roadmap:</strong>
                 <span class="text-white/90 font-sans font-thin leading-relaxed block mt-1">Leave the call with clear next steps for your site, whether you decide to work with us or not. No hard pitches.</span>
@@ -49,11 +51,15 @@
           </ul>
         </div>
 
-        <button
-          class="w-full bg-white text-canvas-soft hover:bg-gray-100 font-sans font-extralight py-4 rounded-lg transition-colors duration-300 flex items-center justify-center gap-2"
+        <GradientButton 
+          variant="variant" 
+          href={CALENDLY_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex h-12 md:h-14 px-6 rounded-full font-semibold hover:scale-105 transition-transform w-full items-center justify-center text-base md:text-lg"
         >
-          Book a 15-Min Strategy Call
-        </button>
+          Book a Strategy Call
+        </GradientButton>
       </div>
     </div>
   </div>
