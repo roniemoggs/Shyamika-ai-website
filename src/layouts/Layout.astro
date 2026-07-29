@@ -56,5 +56,116 @@ const {
   </head>
   <body class="bg-canvas text-ink selection:bg-cyan/30 selection:text-white">
     <slot />
+    <script is:inline>
+      // Gradient button hover animation — driven by JS to guarantee smooth CSS property transitions.
+      // CSS :hover on @property custom properties breaks under Tailwind v4's @layer cascade ordering.
+
+      const HOVER_STATES = {
+        default: {
+          '--pos-x': '0%',
+          '--pos-y': '91.51%',
+          '--spread-x': '120.24%',
+          '--spread-y': '103.18%',
+          '--color-1': '#c96287',
+          '--color-2': '#c66c64',
+          '--color-3': '#cc7d23',
+          '--color-4': '#37140a',
+          '--color-5': '#000',
+          '--border-angle': '190deg',
+          '--border-color-1': 'hsla(340, 78%, 90%, 0.1)',
+          '--border-color-2': 'hsla(340, 75%, 90%, 0.6)',
+          '--stop-1': '0%',
+          '--stop-2': '8.8%',
+          '--stop-3': '21.44%',
+          '--stop-4': '71.34%',
+          '--stop-5': '85.76%',
+        },
+        variant: {
+          '--pos-x': '0%',
+          '--pos-y': '95.51%',
+          '--spread-x': '110.24%',
+          '--spread-y': '110.2%',
+          '--color-1': '#000020',
+          '--color-2': '#f1ffa5',
+          '--color-3': '#469396',
+          '--color-4': '#1f3f6d',
+          '--color-5': '#000',
+          '--border-angle': '210deg',
+          '--border-color-1': 'hsla(320, 75%, 90%, 0.2)',
+          '--border-color-2': 'hsla(320, 50%, 90%, 0.75)',
+          '--stop-1': '0%',
+          '--stop-2': '10%',
+          '--stop-3': '35.44%',
+          '--stop-4': '71.34%',
+          '--stop-5': '90.76%',
+        },
+      };
+
+      const REST_STATES = {
+        default: {
+          '--pos-x': '11.14%',
+          '--pos-y': '140%',
+          '--spread-x': '150%',
+          '--spread-y': '180.06%',
+          '--color-1': '#000',
+          '--color-2': '#08012c',
+          '--color-3': '#4e1e40',
+          '--color-4': '#70464e',
+          '--color-5': '#88394c',
+          '--border-angle': '20deg',
+          '--border-color-1': 'hsla(340, 75%, 60%, 0.2)',
+          '--border-color-2': 'hsla(340, 75%, 40%, 0.75)',
+          '--stop-1': '37.35%',
+          '--stop-2': '61.36%',
+          '--stop-3': '78.42%',
+          '--stop-4': '89.52%',
+          '--stop-5': '100%',
+        },
+        variant: {
+          '--pos-x': '11.14%',
+          '--pos-y': '140%',
+          '--spread-x': '150%',
+          '--spread-y': '180.06%',
+          '--color-1': '#000022',
+          '--color-2': '#1f3f6d',
+          '--color-3': '#469396',
+          '--color-4': '#f1ffa5',
+          '--color-5': '#000',
+          '--border-angle': '200deg',
+          '--border-color-1': 'hsla(320, 75%, 90%, 0.6)',
+          '--border-color-2': 'hsla(320, 50%, 90%, 0.15)',
+          '--stop-1': '37.35%',
+          '--stop-2': '61.36%',
+          '--stop-3': '78.42%',
+          '--stop-4': '89.52%',
+          '--stop-5': '100%',
+        },
+      };
+
+      function applyState(el, state) {
+        for (const [prop, val] of Object.entries(state)) {
+          el.style.setProperty(prop, val);
+        }
+      }
+
+      function initGradientButtons() {
+        document.querySelectorAll('.gradient-button').forEach((el) => {
+          const isVariant = el.classList.contains('gradient-button-variant');
+          const type = isVariant ? 'variant' : 'default';
+
+          // Set rest state explicitly so the browser has a start point to interpolate from
+          applyState(el, REST_STATES[type]);
+
+          el.addEventListener('mouseenter', () => applyState(el, HOVER_STATES[type]));
+          el.addEventListener('mouseleave', () => applyState(el, REST_STATES[type]));
+        });
+      }
+
+      // Run on first load
+      initGradientButtons();
+
+      // Re-run after Astro view transitions (if any)
+      document.addEventListener('astro:page-load', initGradientButtons);
+    </script>
   </body>
 </html>

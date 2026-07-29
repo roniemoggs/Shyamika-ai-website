@@ -1,6 +1,7 @@
 ---
-const CALENDLY_URL = "https://calendly.com/shreyasrajsony11/30min";
+const CALENDLY_URL = "https://calendly.com/rohansingh-shyamikai/simple-meeting";
 const currentYear = new Date().getFullYear();
+import { GradientButton } from '@/components/ui/gradient-button';
 ---
 
 <footer id="contact" class="bg-canvas border-t border-hairline py-20">
@@ -15,14 +16,15 @@ const currentYear = new Date().getFullYear();
         <p class="text-body text-lg mb-8 max-w-md">
           Transform your brand with a next-generation web application. Book a consultation call to discuss your web project.
         </p>
-        <a 
+        <GradientButton 
+          variant="variant" 
           href={CALENDLY_URL}
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center justify-center px-8 py-4 rounded-full bg-white text-on-primary font-semibold text-lg hover:scale-105 transition-transform"
+          className="inline-flex rounded-full font-semibold text-lg hover:scale-105 transition-transform"
         >
           Book A Call
-        </a>
+        </GradientButton>
       </div>
       
       <!-- Links -->
@@ -51,7 +53,8 @@ const currentYear = new Date().getFullYear();
     <!-- Bottom -->
     <div class="mt-24 pt-8 border-t border-hairline flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-mono text-mute">
       <div class="flex items-center gap-2">
-        <span class="font-sans font-semibold text-lg text-white">Shyamika<span class="italic text-cyan">AI</span></span>
+        <img src="/ShyamikaAi-logo.png" alt="Shyamika AI" class="w-6 h-6 object-contain" />
+        <span class="font-sans font-semibold text-lg text-white">Shyamika AI</span>
       </div>
       <p>&copy; {currentYear} Shyamika AI. All rights reserved.</p>
     </div>
