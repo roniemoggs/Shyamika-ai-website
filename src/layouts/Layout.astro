@@ -167,5 +167,31 @@ const {
       // Re-run after Astro view transitions (if any)
       document.addEventListener('astro:page-load', initGradientButtons);
     </script>
+    <script is:inline>
+      function initSlideUpCards() {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.remove('translate-y-32');
+              entry.target.classList.add('translate-y-0');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.15,
+          rootMargin: "0px 0px -50px 0px"
+        });
+
+        document.querySelectorAll('.slide-up-card').forEach(el => {
+          observer.observe(el);
+        });
+      }
+
+      // Run on first load
+      initSlideUpCards();
+
+      // Re-run after Astro view transitions (if any)
+      document.addEventListener('astro:page-load', initSlideUpCards);
+    </script>
   </body>
 </html>

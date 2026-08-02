@@ -3,7 +3,7 @@ import { ScrollReelTestimonials } from "@/components/ui/scroll-reel-testimonials
 
 const TESTIMONIALS = [
   {
-    quote: "Shyamika AI totally transformed our online presence. Their AI web integration is seamless and highly effective.",
+    quote: "Shyamika AI completely changed how we look online. Their AI tools are easy to use and work great.",
     author: "Marcus Thorne",
     image:
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80&auto=format&fit=crop",
@@ -11,14 +11,14 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      "The custom web development and AI automation solutions they delivered gave us a massive competitive edge.",
+      "The custom website and smart automation tools they built for us put us way ahead of our competition.",
     author: "Sarah Jenkins",
     image:
       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80&auto=format&fit=crop",
     alt: "Portrait of Sarah Jenkins",
   },
   {
-    quote: "Incredible attention to detail. Our conversion rates skyrocketed after deploying their AI-driven solutions.",
+    quote: "Great attention to detail. We saw a huge jump in sales after using their smart AI solutions.",
     author: "David Chen",
     image:
       "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80&auto=format&fit=crop",
@@ -34,6 +34,6 @@ const TESTIMONIALS = [
   </picture>
 
   <div class="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
-    <ScrollReelTestimonials client:visible testimonials={TESTIMONIALS} />
+    <ScrollReelTestimonials client:visible testimonials={TESTIMONIALS} className="slide-up-card translate-y-32 transition-all duration-1000 ease-out" />
   </div>
 </section>

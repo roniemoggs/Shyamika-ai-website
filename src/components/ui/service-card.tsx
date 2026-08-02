@@ -22,7 +22,7 @@ export const ServiceGlassCard: React.FC<{ service: ServiceItem; index: number }>
 }) => {
   return (
     <div
-      className="min-h-[560px] rounded-3xl p-8 flex flex-col group relative overflow-hidden transition-all duration-500 hover:scale-[1.02] bg-white/5 backdrop-blur-md shadow-lg"
+      className="min-h-[560px] rounded-3xl p-8 flex flex-col group relative overflow-hidden transition-all duration-1000 ease-out hover:scale-[1.02] bg-white/5 backdrop-blur-md shadow-lg slide-up-card translate-y-32"
       style={{ animationDelay: `${index * 0.2}s` }}
     >
       {/* Gradient Border Highlight */}
